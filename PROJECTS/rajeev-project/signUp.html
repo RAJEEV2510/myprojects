@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <style>
+        body {
+background-color:black;
+        }
+
+        marquee {
+            color: rgb(187, 192, 185);
+            font-size: 2vw;
+            font-weight: 500;
+            text-shadow: 1px 2px 3px rgb(212, 17, 17);
+        }
+
+        /* bro input or placeholder dono hi color ko support na krre */
+        form>input {
+            color: chocolate;
+        }
+
+        ::placeholder {
+            color: red;
+            text-align: center;
+        }
+    </style>
+    <title>Code With Us-SignUp</title>
+</head>
+
+<body>
+
+<!-- alert message for success -->
+    <div id="success" class="alert alert-success alert-dismissible fade" role="alert">
+        <strong>Success!</strong> Your travel request has been successfully submitted
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+
+<!-- alert message for failure -->
+    <div id="failure" class="alert alert-danger alert-dismissible fade" role="alert">
+        <strong>Error!</strong> Your travel request has not been sent due to errors
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+
+    <!-- header section starts here     -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand px-3" href="#">Code Us</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUs.html">About Us</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-success my-2 mx-2 my-sm-0" data-target="#SignInModel" data-toggle="modal">SignIn</button>
+            </div>
+        </nav>
+    </header>
+
+
+<!-- modal containing form for sign in data -->
+
+<div class="modal" tabindex="-1" id="SignInModel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">SignIn Here </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+              
+              </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-warning">SignIn</button>
+          <!-- <button type="button" class="btn btn-secondary" data-target="#SignUpModel" data-toggle="modal" >SignUp</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Sign Up form starts from here -->
+
+    <div class="container" style="margin-top: 5vh; text-align: center;">
+        <marquee>Please fill your details to SignUp. </marquee>
+        <h1 style="color: rgb(162, 152, 172); text-shadow: 2px 2px 40px rgb(12, 152, 233);">Sign-Up Form</h1>
+        <form style="margin-top: 3vh;">
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" placeholder="Enter your name here" name="name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" placeholder="Enter your username here"
+                    name="username">
+                <small id="namevalid" class="form-text text-muted invalid-feedback">
+                    Your username must be 2-10 characters long and should not start with a number
+                </small>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Enter your email here" name="email"
+                    aria-describedby="emailHelp">
+                <small id="namevalid" class="form-text text-muted invalid-feedback">
+                    Your email should be like name@gmail.com and also accepts . and - and _
+                </small>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="Enter your password here"
+                    name="password">
+                <small id="namevalid" class="form-text text-muted invalid-feedback">
+                    Your password must be 8-20 characters long.
+                </small>
+            </div>
+            
+            <button id="SignUp" type="button" class="btn btn-warning w-100">SignUp</button>
+        </form>
+
+    </div>
+
+    <!-- footer sectoin starts here -->
+    <section>
+        <div id="footer" class="container-fluid "
+            style="background-color: #070617; margin-top:100px; padding:20px;width: 100%;">
+            <div class="row pl-4">
+
+                <div class="col-lg-6 col-md-6 col-sm-12 text-white">
+                    <div>
+                        <h3>Made By:-</h3>
+                        <h6>RR Technical</h6>
+
+                        <h3>Contact:-</h3>
+                        <h6>
+                            (+91)1238974809 <br>
+                            rajeev@gmail.com <br>
+                            23 Press Enclave Marg, Saket Institutional Area, <br> Saket, New Delhi, Delhi 110017
+                        </h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div>
+                        <h1 class="text-light">Route</h1>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14026.098958650466!2d76.998432721126!3d28.49385612813301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d175c07824277%3A0x504ab9f510440d73!2sRajendra%20Park%2C%20Sector%20105%2C%20Gurugram%2C%20Haryana%20122006!5e0!3m2!1sen!2sin!4v1597665240509!5m2!1sen!2sin"
+                            height="150" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                            tabindex="0"></iframe>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row text-center ">
+                <div class="col-lg-12 ">
+                    <div class="footer-copyright text-center text-light">© 2020 Copyright:
+                        Code Hub
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</body>
+
+<!-- Javascript starts from here -->
+
+<script>
+    console.log('hi this is rohit');
+// grab elements with id's
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const email = document.getElementById('email');
+    const mobile = document.getElementById('mobile');
+// by default validations are false but change to true whenever entered goes to valid 
+    let validUsername = false;
+    let validPassword = false;
+    let validEmail = false;
+    let validMobile = false;
+// by default both the alerts are hidden changed to show whenever conditions fullfilled
+    $('#failure').hide();
+    $('#success').hide();
+
+    console.log(username);
+// apply validations for username
+    username.addEventListener('blur', () => {
+        console.log('blur event called in username');
+        let regex = /^[a-zA-Z]([0-9a-zA-Z]){2,10}$/;
+        let str = username.value;
+        //    console.log(regex,str);
+        if (regex.test(str)) {
+            console.log('username is valid');
+            username.classList.remove('is-invalid');
+            validUsername = true;
+        }
+        else {
+            console.log('username is not valid');
+            username.classList.add('is-invalid');
+            validUsername = false;
+        }
+    });
+// apply validATONS FOR mobile
+    mobile.addEventListener('blur', () => {
+        console.log('blur event called in mobile');
+        let regex = /^([0-9]){10}$/;
+        let str1 = mobile.value;
+        //    console.log(regex,str);
+        if (regex.test(str1)) {
+            console.log('mobile is valid');
+            mobile.classList.remove('is-invalid');
+            validMobile = true;
+        }
+        else {
+            console.log('mobile is not valid');
+            mobile.classList.add('is-invalid');
+            validMobile = false;
+        }
+    });
+// apply validatins for password
+    password.addEventListener('blur', () => {
+        console.log('blur event called in password');
+        let regex = /^([_@\-\.a-zA-Z0-9]){8,20}$/;
+        let str2 = password.value;
+        //    console.log(regex,str);
+        if (regex.test(str2)) {
+            console.log('password is valid');
+            password.classList.remove('is-invalid');
+            validPassword = true;
+        }
+        else {
+            console.log('password is not valid');
+            password.classList.add('is-invalid');
+            validPassword = false;
+        }
+    });
+// apply validatons for email
+    email.addEventListener('blur', () => {
+        console.log('blur event called in email');
+        let regex = /^([_\-\.[a-zA-Z0-9]+)@([_\-\.[a-zA-Z0-9]+)\.([a-zA-Z]){2,8}$/;
+        let str = email.value;
+        //    console.log(regex,str);
+        if (regex.test(str)) {
+            console.log('email is valid');
+            email.classList.remove('is-invalid');
+            validEmail = true;
+        }
+        else {
+            console.log('email is not valid');
+            email.classList.add('is-invalid');
+            validEmail = false;
+        }
+    });
+
+
+// performing functions on sign up button
+    const SignUp = document.getElementById('SignUp');
+    SignUp.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('clicked on the sign up button');
+        console.log(validUsername, validEmail, validPassword, validMobile);
+// checking if all validations are come to be true then success alert will be shown otherwise failure is shown
+        if (validUsername && validPassword && validMobile && validEmail) {
+            let failure = document.getElementById('failure');
+            let success = document.getElementById('success');
+            console.log('enterd in if loop');
+            success.classList.add('show');
+            $('#failure').hide();
+            $('#success').show();
+
+        }
+        else {
+            let failure = document.getElementById('failure');
+            let success = document.getElementById('success');
+
+            failure.classList.add('show');
+            $('#failure').show();
+            $('#success').hide();
+        }
+    });
+</script>
+
+</html>

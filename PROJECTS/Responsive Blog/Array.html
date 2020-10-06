@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr=[1,2,3,4,5,6,7,8,9,10];
+        const names= arr.filter((item)=>{
+            if(item >5)
+            return item;
+            //filer use for removing the values only//its length different not using else
+            //map  array can be same;
+          
+
+        })
+       document.write(names)
+        
+        
+       var ages = [312, 13, 16, 10];
+
+function checkAdult(age) {
+  return age >= 18;
+}
+
+ var  arr5= ages.filter(checkAdult);
+    document.write(arr5)
+var n=['rajeev','kumar','rajat','sharma','chirag'];
+//return first value
+n.unshift('kapil','narang')
+console.log(n)
+document.write(n);
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: blanchedalmond;
+        }
+        .navbar{
+            display: flex;
+            width: 100%;
+            height: 55px;
+            background-color: rgb(235, 228, 228);
+            
+        }
+        .leftBox{
+            position: absolute;
+            left: 20px;
+            top: 7px;
+        }
+        .leftBox a{
+            padding: 0px 20px;
+            text-decoration: none;
+            font-size: 30px;
+        }
+        .rightBox{
+            position: absolute;
+            right: 30px;
+            top: 7px;
+        }
+        .rightBox input{
+            height: 25px;
+            margin-top: 5px;
+            background-color: darkkhaki;
+        }
+        /* 
+        .search{
+            height: 25px;
+            margin-top: 3px;
+        } */
+        .rightBox button{
+            padding: 2px 4px;
+            margin-left: 10px;
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+        }
+        .srchbtn{
+            margin-top: 5px;
+            background-color: darksalmon;
+        }
+
+        .main{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+        .main h1{
+            text-decoration: underline;
+            color: brown;
+            margin-top: 30px;
+        }
+        .main textarea{
+            width: 30%;
+            margin: 5px 450px;
+            background-color: cyan;
+            color:red;
+            font-size: 20px;
+        }
+        #addTitle{
+            margin-top: 30px;
+            background-color: darkslateblue;
+        }
+        .main button{
+            width: 150px;
+            height: 30px;
+            margin-left: 500px;
+            font-size: 20px;
+            padding: 3px;
+            background-color: cornflowerblue;
+        }
+        .cardBody{
+            border: 2px solid red;
+            
+        }
+    </style>
+
+	<title></title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="leftBox">
+            <a href="#" class="title">My wishlist</a>
+            <a href="#" class="name">Home</a>
+        </div>
+        <div class="rightBox">
+            <input type="text" id='search' class="search" placeholder="Enter to search">
+            <button id="searchTxt" class="srchbtn">Search</button>
+        </div>
+    </nav>
+    <div class="container">
+       <div class="main">
+           <h1>This is my wishlist</h1>
+           <textarea placeholder="Enter your title here" id="addTitle" cols="30" rows="2"></textarea>
+           <textarea placeholder="Enter description here" id="addTxt" cols="30" rows="7"></textarea>
+           <button id="addBtn">Add my wish</button>
+       </div> 
+       <div id="RAJEEV"></div>
+       <div id="wishes">   </div>
+    </div>
+    <script type="text/javascript">
+    	
+console.log("hi");
+showWishes();    // calling function to show saved wishes on screen by default.
+// localStorage.clear();
+
+// Accessing the elements from html to Js so that we apply operations on them to make then working..
+let addBtn=document.getElementById("addBtn");  
+addBtn.addEventListener("click",function(e){
+    let addTxt=document.getElementById("addTxt");
+    let addTitle=document.getElementById("addTitle");
+    let wishes=localStorage.getItem("wishes");
+    let titles=localStorage.getItem("titles");
+    //checking whether the data is stored in wishes or not.If stored then access it in wishesObj. If not then set it as empty array. sam eprocess is fore titles.
+    if(wishes==null){  
+        wishesObj=[];
+    }
+    else{
+        wishesObj=JSON.parse(wishes);
+        // console.log(wishesObj);
+    }
+    if(titles==null){
+        titlesObj=[];
+    }
+    else{
+        titlesObj=JSON.parse(titles);
+        // console.log(titlesObj);
+    }
+    // saving the value of wish and title entered by user in our arrays and store them in our localStorage in form of array..
+    wishesObj.push(addTxt.value);
+    titlesObj.push(addTitle.value);
+    localStorage.setItem("wishes",JSON.stringify(wishesObj));
+    localStorage.setItem("titles",JSON.stringify(titlesObj));
+    //   making the textBoxes empty so that user enter a new wish.
+    addTxt.value="";
+    addTitle.value="";
+    showWishes();
+})
+
+function showWishes(){
+    let wishes=localStorage.getItem("wishes");
+    let titles=localStorage.getItem("titles");
+    if(wishes==null){  
+        wishesObj=[];
+    }
+    else{
+        wishesObj=JSON.parse(wishes);
+    }
+    if(titles==null){
+        titlesObj=[];
+    }
+    else{
+        titlesObj=JSON.parse(titles);
+    }
+    let html="";
+    for(var i=0;i<titlesObj.length;i++)
+    {          html+=`
+        <div class="cardBody">
+                <h3 class="cardTitle">${titlesObj[i]}</h3>
+                <h3 class="cardTitle">${wishesObj[i]}</h3>
+                <button id="${i}" onclick="deleteNote(this.id)">Delete Wish </button>
+                </div>
+                `
+    }  
+    
+    let wishesElm = document.getElementById("wishes");
+    let titleElm = document.getElementById("titles");
+  if (titlesObj.length != 0 & wishesObj !=0) {
+    wishesElm.innerHTML=html;
+  } else {
+    wishesElm.innerHTML= `Nothing to show! Use "Add a Note" section above to add notes.`;
+  }
+    }
+
+function deleteNote(index){
+    let wishes=localStorage.getItem("wishes");
+    let titles=localStorage.getItem("titles");
+    if(wishes==null){  
+        wishesObj=[];
+    }
+    else{
+        wishesObj=JSON.parse(wishes);
+    }
+    if(titles==null){
+        titlesObj=[];
+    }
+    else{
+        titlesObj=JSON.parse(titles);
+    }
+    wishesObj.splice(index,1);
+    titlesObj.splice(index,1);
+    localStorage.setItem("wishes",JSON.stringify(wishesObj));
+    localStorage.setItem("titles",JSON.stringify(titlesObj));
+
+    showWishes();
+}
+</script>
+</body>
+</html>

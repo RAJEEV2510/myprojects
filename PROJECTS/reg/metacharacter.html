@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let str='hasry is a good boy  and hasry is code with harry';
+        // let regex=/^ha.ry/  //start  with h
+        // regex=/y$/ //end with y
+        // regex=/ha+ry/g
+        // // regex=/h\*rryi?/
+        // str="hary"
+        // console.log(regex.test(str))
+        // console.log(regex)
+        // console.log(str.match(regex))
+    </script>
+
+
+<script>
+        let reg=/h[^r]rry/
+        reg=/h[a-zA-Z0-9][a-z][a-z][a-z]/
+
+        reg=/har{2}y/; //r can exact two times
+        reg=/har{0,3}y/
+        reg=/(har){2}/ //(har) consist two times in a string
+        const str1='harhar bhai'
+        console.log(str1.match(reg))
+        console.log(reg.test(str1))
+</script>
+<script>
+
+    let regex=/\war/; //word character _ or numbers or alphabets
+    regex=/\w+/ //atleast one word or more
+    regex=/\W+/ //non word character
+    regex=/\d+/g //match a digit and /D for non digit number
+    regex =/\s+bhai99/; //return whitespaces character
+    regex =/\S+bhai99/; //return non white character
+    str='harhar99 sdfbhai99 hy';
+    //word boundary \b 
+    //Assertions
+
+    regex=/h(?!y)/g;
+    
+    console.log(regex.exec(str));
+    console.log(str.match(regex))
+</script>
+</body>
+</html>

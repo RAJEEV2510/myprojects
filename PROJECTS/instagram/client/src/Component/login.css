@@ -1,0 +1,50 @@
+.Mycard{
+    
+
+}
+.leechi{
+    font-family: 'Great vibes', cursive;
+}
+.auth-card{
+    margin:100px auto;
+    padding: 20px;
+    text-align: center;
+    max-width: 450px;
+}
+.field input[type=text]:focus {
+    border-bottom: 1px solid red!important;
+    box-shadow: 0 1px 0 0 #000 !important;
+  }
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:'space-around'
+}
+.item{
+    width:20%;
+    margin-left: 30px;
+    margin-top: 30px;
+    
+}
+.home-card{
+    max-width: 500px;
+    margin:56px auto;
+    height: 10%!important;
+    padding: 10px;
+}
+.post{
+    height:300px;
+    border-radius: 10px!important;
+}
+.likes{
+    cursor: pointer;
+}
+.likes:hover{
+    cursor: pointer;
+    cursor: pointer!important;
+    font-size:26px ;
+}
+
+
+
+

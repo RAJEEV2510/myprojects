@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-storage.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+</head>
+<body>
+
+
+
+    <input type="file" id="photo">
+    <button onclick="upload()">Upload</button>
+
+<div class="src"  style="height: 400px;width: 400px; background-color:brown;cursor: pointer;"download></div>
+
+	
+
+</video>
+    <img id="image" src="" height="400" width="400" download></img>
+<div id="progress-bar"></div> 
+
+<progress value="0" max="100" id="uploader" style="margin-top:100px;margin-bottom: 100px;margin-right: 100px;">0%</progress>    
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBupcnbvPaxqx2z6Bs2H6YkkbBOLGreE6I",
+    authDomain: "cloud-functions-9ae09.firebaseapp.com",
+    databaseURL: "https://cloud-functions-9ae09.firebaseio.com",
+    projectId: "cloud-functions-9ae09",
+    storageBucket: "cloud-functions-9ae09.appspot.com",
+    messagingSenderId: "312199651263",
+    appId: "1:312199651263:web:477ea6da1c64b8dbd1cb0a",
+    measurementId: "G-60GQF53LLK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  
+</script>
+<script>
+    function upload(){
+        
+        const ref=firebase.storage().ref();
+        const file=document.querySelector("#photo").files[0];
+        
+        var name=file.name;
+        const metaData={
+            contentType:file.type
+        }
+      const task=ref.child(name).put(file);
+      //async
+
+      task.on('state_changed',
+      function progress (snapshot){
+
+          var percentage=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+          document.getElementById('uploader').value=percentage;
+          var para=document.createElement('p');
+          
+          para.innerHTML+=`${(Math.round(percentage))*100}% uploaded  `;
+      
+          document.getElementById('progress-bar').appendChild(para)
+      }
+      
+      )
+      task.then(snapshot=>{
+         
+        
+          return snapshot.ref.getDownloadURL()}).then(URL=>{
+
+        console.log(URL);
+
+      const div =document.createElement('div');
+      div.innerHTML=`<a href="${URL}" download>
+click me
+</a>`  
+document.getElementsByTagName('body')[0].appendChild(div)  
+       document.querySelector('#image').src=URL;  
+       var v=document.createElement('video')
+       v.src=URL
+       v.controls=true;
+       v.style.height ='200px';
+       v.style.width = '200px';
+
+       document.getElementsByClassName('src')[0].appendChild(v);
+      
+       
+      })
+
+    }
+</script>
+
+
+
+</body>
+</html>

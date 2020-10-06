@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Code With Us</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .parallaxOne{
+            width: 100vw;
+            height: 70vh;
+            background-image: url(bg1.png);
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+        .parallaxOne h2{
+            position: relative;
+            top: 35vh;
+        }
+        .parallaxTwo{
+            width: 100vw;
+            height: 70vh;
+            background-image: url(bg2.png);
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+        .parallaxTwo p{
+            position: relative;
+            top: 35vh;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- header section starts here     -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand px-3" href="#">Code Us</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUs.html">About Us</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-success my-2 mx-2 my-sm-0" data-target="#SignInModel" data-toggle="modal">SignIn</button>
+                <button class="btn btn-outline-success my-2" type="submit" ><a href="signup.html">SignUp  </a> </button>
+
+                
+            </div>
+        </nav>
+    </header>
+
+<!-- modal containing form for sign in data -->
+
+    <div class="modal" tabindex="-1" id="SignInModel">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">SignIn Here </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Save my details</label>
+                    </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">SignIn</button>
+              <!-- <button type="button" class="btn btn-secondary" data-target="#SignUpModel" data-toggle="modal" >SignUp</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- main body section which shows the content like heading and a para on our site using parallax  -->
+
+    <section>
+        <div class="col-lg-12 " style="text-align: center;">
+            <div  class="parallaxOne"> 
+                <h2 style="background-color: rgb(14, 13, 13);color: cornsilk; display: inline-block;"> RR Technical</h2>
+            </div>
+            <div class="parallaxTwo">
+                <p style="background-color: rgb(14, 13, 13);color: cornsilk; display: inline-block;">Best platform to save your code online. <br> Easily access your code anytime whenever you need that. <br> </p>
+            </div>
+        </div>
+    </section>
+
+<!-- footer starts here -->
+    <section>
+        <div id="footer" class="container-fluid "
+            style="background-color: #070617; padding:20px;width: 100%;">
+            <div class="row pl-4">
+
+                <div class="col-lg-6 col-md-6 col-sm-12 text-white">
+                    <div>
+                        <h3>Made By:-</h3>
+                        <h6>RR Technical</h6>
+
+                        <h3>Contact:-</h3>
+                        <h6>
+                            (+91)1238974809 <br>
+                            rajeev@gmail.com <br>
+                            23 Press Enclave Marg, Saket Institutional Area, <br> Saket, New Delhi, Delhi 110017
+                        </h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div>
+                        <h1 class="text-light">Route</h1>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14026.098958650466!2d76.998432721126!3d28.49385612813301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d175c07824277%3A0x504ab9f510440d73!2sRajendra%20Park%2C%20Sector%20105%2C%20Gurugram%2C%20Haryana%20122006!5e0!3m2!1sen!2sin!4v1597665240509!5m2!1sen!2sin"
+                            height="150" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                            tabindex="0"></iframe>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row text-center ">
+                <div class="col-lg-12 ">
+                    <div class="footer-copyright text-center text-light">© 2020 Copyright:
+                        Code Hub
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

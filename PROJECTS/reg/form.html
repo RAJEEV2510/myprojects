@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form  onsubmit=" return fn(event)" method='POST'>
+<input type="text" name='username' id="username" placeholder="username" oninput="">
+    <input type="email" name='email' id='email'  placeholder="email">
+    <input type='password' name="password" id="password" placeholder="password">
+    <input type="number" name="number" id="mobile" placeholder="number">
+    <input type="submit">
+</form>
+<script>
+
+  function  fn(event)
+    {
+       
+
+        let username=document.getElementById('username').value;
+        let email=document.getElementById('email').value;
+        let password=document.getElementById('password').value;
+    
+        let mobile=document.getElementById('mobile').value;
+       
+           
+        if(!username || !email || !password || !mobile)
+        {
+
+                document.getElementById('username').style.border='1px solid red';
+                document.getElementById('email').style.border='1px solid red';
+                document.getElementById('password').style.border='1px solid red';
+                alert('full fill completed');
+                return false;
+        }
+
+        if(username.length!=5 || password.length<=5 || mobile.length!=10)
+        {
+            console.log(username)
+            alert('password length is less than 6 or username is not correct or invalid number')
+            return false
+        }
+        
+
+    let reguser=/\w{5}/;        
+    let regemail=/\w\w\w+@gmail.com/;
+    let  regpassword=/[a-zA-Z0-9]{6}\w*?/
+    let regmobile=/[6-9]\d{9}/    
+        if(!reguser.test(username) || !regemail.test(email) || !regpassword.test(password) || !regmobile.test(mobile))
+        {
+            console.log(username.match(reguser))
+            console.log(password.match(regpassword))
+            console.log(email.match(regemail))
+            alert('you not full fill all conditions as per our guidlines');
+            return false;
+        }
+        else
+        {
+            
+            console.log(reguser.test(username))
+         
+            alert('form is submitted thanks to coming');
+            return true
+        }
+
+    }
+</script>
+
+</body>
+</html>

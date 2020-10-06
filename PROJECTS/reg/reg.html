@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular expression Literal</title>
+</head>
+<body>
+    <script>
+        console.log("regular expression")
+        // let reg=/rajeev/g;//this is  a regular expression
+        reg = /rajeev/g;//i means incase insensitive
+        console.log(reg)
+        console.log(reg.source)
+
+        //1   function to match regular expressions
+        let s = "This is great code rajeev with rajeev";
+        //1 .exec()-this function will return an arry for match or null for no match
+        // let result =reg.exec(s);
+        // console.log(result)
+        // result=reg.exec(s)
+        // console.log(result) --> we can use multiple exec with global flag
+
+        //2 test() = returns true or false
+        let result = reg.test(s)
+    
+        console.log(result)
+        //match function  it will return an array of results or null
+        
+        let result3= s.match(reg)
+        console.log(result3,'match')
+        
+//4 function search
+let result4=s.search(reg)
+        console.log(result4)
+//5 return new replace  string with all replacements
+
+let result5=s.replace(reg,'subham')
+console.log(result5)
+    </script>
+</body>
+
+</html>

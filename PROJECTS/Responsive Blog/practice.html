@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width:400px;height: 500px;margin-top: 100px;background-color: aqua;
+    margin-left: 20%;
+    ">
+
+
+<input  type="text" placeholder="enter first name" style="margin-bottom: 40px;" id="input1"> </input>
+<input type="text" placeholder="enter last name " id="input2"> </input>
+<br>
+<br>
+<input type="password" placeholder="enter your password " id="input3"> </input>
+male
+<input type="radio" value="m" name="gender" id="male">
+Female
+<input type="radio" value="f" name="gender" id="female">
+<button onclick="fn()"> submit</button>
+
+</div>
+<div id="making">
+
+</div>
+<script>
+function fn()
+{
+ 
+    var x=document.getElementById('input1').value;
+    var y=document.getElementById('input2').value;
+    var male=document.getElementById('male');
+    var female=document.getElementById('female');
+    var password=document.getElementById('input3').value;
+
+    if(!x || !y)
+{
+
+    alert(" please fill the complete form");
+    return 
+}
+    if(password.length<6)
+    {
+        console.log(password.length)
+        
+        return alert('password is to short')
+    }
+
+    if(male.checked)
+   {    
+       var p =document.createElement('p');
+       p.innerHTML=`FNAME :${x} <br> LNAME:${y}  <br> gender :${male.value}`;
+       document.getElementById('making').appendChild(p);
+
+
+   }
+   else if(female.checked){
+        const h1=document.createElement('div');
+        h1.innerHTML=`FNAME :${x} <br> LNAME:${y}  <br> gender :${female.value}`;
+        document.getElementById('making').appendChild(h1);
+   }
+  
+}
+
+</script>
+</body>
+</html>

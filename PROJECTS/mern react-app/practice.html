@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        p1 {
+            background-color: orangered;
+        }
+
+        p {
+            background-color: black;
+            color: lightgreen;
+            width: 300px;
+            padding-left: 100px;
+            font-size: 25px;
+            margin-left: 300px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div" style="background-color:deeppink;text-align: center;color: black;"></div>
+    <h1 style="text-align: center;background-color:black;color: dodgerblue;"> SEARCHING</h1>
+    <input type="search"
+        style="margin-left:500px;width:400px;  text-align: center;background-color:black;color: dodgerblue;"
+        placeholder="search in to do list" oninput="fn(event)">
+
+    <label>
+
+    </label>
+
+    <p id="p1"></p>
+    <p id="p"></p>
+
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ADD
+    VALUE IN LIST
+    <input type="text" id="in" placeholder="add value in to do list"
+        style="background-color: black;margin-left: 100px;color: chartreuse;">
+    </input>
+    <button onclick="fn2()" style="margin-left: 100px; background-color: black;color:dodgerblue">add</button>
+    <script>
+        var bc;
+        var list = [];
+
+
+        function fn2() {
+            bc = document.getElementById('in').value;
+            list.push(bc)
+            change();
+
+
+            document.getElementById('in').value = "";
+        }
+        var a = prompt('enter your todo list name')
+        var head = document.createElement('h1');
+
+        head.innerHTML = a;
+
+        document.getElementById('div').append(head)
+
+        function func3(i) {
+
+            list.pop(list[i])
+            document.getElementById(`${i}`).style.display = "none"
+
+        }
+
+        function change() {
+            document.getElementById('p').innerHTML = ``;
+            for (var i = 0; i < list.length; i++) {
+                console.log(list[i])
+                document.getElementsByTagName('label')[0].innerHTML = ""
+                document.getElementById('p').innerHTML += `<li id="${i}">${list[i]} <button style="border-radius:50%;color:red;background-color:black;" onclick=func3(${i}) >⚔️</button> </li>`;
+            }
+        }
+
+        function fn(event) {
+
+            document.getElementsByTagName('label')[0].innerHTML = "value not correct type"
+
+
+            var arr = []
+            for (var i = 0; i < list.length; i++) {
+
+                if (event.target.value.toLocaleLowerCase() === list[i].toLocaleLowerCase() && event.target.value.length == list[i].length) {
+
+                    document.getElementById('p1').innerHTML = list[i] + '  find in our list';
+                    document.getElementsByTagName('label')[0].innerHTML = ""
+                    break;
+                }
+
+            }
+            if (event.target.value == "") {
+
+                var i;
+                document.getElementsByTagName('label')[0].innerHTML = ""
+                document.getElementById('p1').innerHTML = '';
+                change()
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

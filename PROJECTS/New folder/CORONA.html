@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tbval" border="1px">
+        <thead>
+            <th>
+                Country
+            </th>
+            <th>
+                TotalConfirmed
+            </th>
+            <th>
+                TotalRecovered
+            </th>
+            <th>
+                TotalDeaths
+            </th>
+            <th>
+                NewRecovered
+            </th>
+            <th>
+                NewDeaths
+            </th>
+        </thead>
+     </table>
+
+    <script>
+        var xmlhttp= new XMLHttpRequest();    //object        
+        
+        var x;
+        xmlhttp.open('GET','https://api.covid19api.com/summary')//request open
+        xmlhttp.send()//requets send
+        xmlhttp.onload= function(){
+        x=JSON.parse(this.responseText)
+                console.log(x)
+            var i;
+           tbval= document.getElementById('tbval');
+            for (i=1;i<x['Countries'].length;i++)
+                {
+                    var y=tbval.insertRow();
+                    y.insertCell(0);
+                    tbval.rows[i].cells[0].innerHTML=x['Countries'][i-1]['Country'];
+                
+                    y.insertCell(1);
+                    tbval.rows[i].cells[1].innerHTML=x['Countries'][i-1]['TotalConfirmed'];
+    
+                    y.insertCell(2);
+                    tbval.rows[i].cells[2].innerHTML=x['Countries'][i-1]['TotalRecovered'];
+            
+                    y.insertCell(3);
+                    tbval.rows[i].cells[3].innerHTML=x['Countries'][i-1]['TotalDeaths'];
+                    y.insertCell(4);
+                    tbval.rows[i].cells[4].innerHTML=x['Countries'][i-1]['NewRecovered'];
+                    y.insertCell(5);
+                    tbval.rows[i].cells[5].innerHTML=x['Countries'][i-1]['NewDeaths'];
+                          
+             }
+        }
+    </script>
+</body>
+</html>

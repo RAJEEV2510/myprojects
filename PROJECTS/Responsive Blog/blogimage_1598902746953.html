@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div id="div"></div>
+	<script>
+	
+	</script>
+	<script>
+	var para = document.getElementById("div");
+		const myproglang=['js','c','python','java','php','c++'];
+		//serialwise
+		let [top1,,,,,top5]=myproglang
+		console.log(top1,top5)
+
+		//get request 
+	async function apicovid(){
+		//async request
+			await fetch('https://api.covid19api.com/countries').then((data)=>{
+			//convert data into json format
+		return data.json();
+		}).then((actualdata)=>{
+			//convert the javascript into json object into stringify format
+		let c=actualdata;
+
+
+			for(var i=0;i<=100;i++)
+			{
+				para.innerHTML+=`<li>${JSON.stringify(c[i].Country)}</li>`;
+
+			}
+
+		}).catch((err)=>{
+		console.log(err)})
+	}
+apicovid()
+	</script>
+
+</body>
+</html>

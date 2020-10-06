@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let regex=/rajeev/;
+        //lets look into some metacharacter symbols
+        
+        let str='rajeev is the good boy rajeev is code boy';
+        let result =regex.exec(str);
+        console.log(result)
+        if(regex.test(str))
+        {
+            console.log(`this is string ${str} ${regex.source}`);
+        }
+
+    </script>
+</body>
+</html>
